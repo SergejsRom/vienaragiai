@@ -83,3 +83,15 @@ $b = 9;
 
 var_dump(!isset($b) || null === $b);
 
+$pirmas = 'Don\'t Be a Menace to South Central While Drinking Your Juice in the Hood';
+$antras = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale';
+
+$masyvas = explode(' ', $pirmas.' '.$antras);
+shuffle($masyvas);
+$masyvas = array_splice($masyvas, 0, 10);
+$atsakymas = implode(' ', $masyvas);
+print_r($atsakymas);
+
+
+
+
