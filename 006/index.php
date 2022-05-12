@@ -34,4 +34,33 @@ foreach($animals as $key => $animal) {
 
 }
 
-print_r($animals);
+
+
+
+$_6X6 = [];
+
+for ($k = 0; $k < 6; $k++) {
+    
+    $row = [];
+    for ($i = 0; $i < 6; $i++) {
+        $row[] = rand(6, 36);
+    }
+
+    $_6X6[] = $row;
+
+}
+
+echo '<br>';echo '<br>';
+
+foreach($_6X6 as $row) {
+
+    foreach($row as $number) {
+        echo " $number ";
+    }
+    
+    echo '<br>';
+}
+
+
+
+// print_r($_6X6);
