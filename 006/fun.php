@@ -49,7 +49,6 @@ $bevardo = function() {
     echo 'As neturiu vardo';
 };
 
-
 $bevardo();
 
 
