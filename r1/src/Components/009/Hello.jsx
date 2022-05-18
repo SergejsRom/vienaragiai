@@ -1,7 +1,13 @@
-function Hello() {
+function Hello({spalva, size}) {
 
     return (
-        <h1>Hello</h1>
+        <h1 style={
+            {
+                color:spalva,
+                fontSize: size + 3 + 'px'
+
+            }
+        }>Hello {}</h1>
     )
 }
 

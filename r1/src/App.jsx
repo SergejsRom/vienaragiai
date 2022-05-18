@@ -6,10 +6,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Hello></Hello>
+        <Hello spalva="crimson" size={14}></Hello>
         <Kurmis></Kurmis>
-        <Hello></Hello>
-        <Hello></Hello>
+        <Hello spalva="skyblue" size={22}></Hello>
+        <Hello spalva="yellow" size={33}></Hello>
       </header>
     </div>
   );
