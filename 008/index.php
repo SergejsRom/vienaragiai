@@ -33,9 +33,44 @@ fn($a) => $a * 7
 );
 
 
-foreach($funkcijuMasyvas as $go) {
-    echo $go($sk).'<br>';
+foreach($funkcijuMasyvas as &$go) {
+    $go = $go($sk);
 }
+
+
+print_r($funkcijuMasyvas);
+
+function gen_one_to_three() {
+    for ($i = 0; $i < 3; $i++) {
+        yield $i => rand(1000, 9999);
+    }
+}
+
+foreach (gen_one_to_three() as $key => $value) {
+    echo "$key => $value <br>";
+}
+
+$transport = ['foot', 'bike', 'car', 'plane'];
+
+echo '<br>';
+echo current($transport); 
+
+echo '<br>';
+echo next($transport);
+next($transport);
+next($transport);
+prev($transport);
+echo '<br>';
+echo end($transport);
+echo '<br>';
+echo reset($transport);
+
+echo '<br>';
+var_dump(current($transport)); 
+
+
+
+
 
 
 
