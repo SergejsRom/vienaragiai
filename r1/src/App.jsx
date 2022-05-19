@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './App.css';
 
-const cats = ['Pilkis', 'Rainis', 'Murkis'];
+import randColor from './Functions/randColor';
+
+// const cats = ['Pilkis', 'Rainis', 'Murkis'];
 
 function App() {
 
@@ -25,7 +27,7 @@ function App() {
         setNr(n => n + 1);
     }
 
-    const addKv = () => setKv(kvM => [...kvM, 1])
+    const addKv = () => setKv(kvM => [...kvM, randColor()])
 
 
     return (
@@ -34,7 +36,7 @@ function App() {
                 <h1 style={{color:spalva}}>State {nr}</h1>
                 <div className="kvc">
                     {
-                        kv.map((k, i) => <div key={i} className="kv"></div>)
+                        kv.map((c, i) => <div key={i} className="kv" style={{background: c}}>{i}</div>)
                     }
                 </div>
 
