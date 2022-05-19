@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.kvc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.kv {
+  width: 77px;
+  height: 77px;
+  background-color: crimson;
+  margin: 7px;
+  border-radius: 5px;
+}

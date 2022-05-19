@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import './App.css';
 
+const cats = ['Pilkis', 'Rainis', 'Murkis'];
+
 function App() {
 
     const [spalva, setSpalva] = useState('crimson');
     const [nr, setNr] = useState(1);
+    const [kv, setKv] = useState([]);
 
     const stebuklas = (a) => {
         console.log('stebuklu stebuklas ' + a);
@@ -22,15 +25,23 @@ function App() {
         setNr(n => n + 1);
     }
 
+    const addKv = () => setKv(kvM => [...kvM, 1])
+
 
     return (
         <div className="App">
             <header className="App-header">
                 <h1 style={{color:spalva}}>State {nr}</h1>
+                <div className="kvc">
+                    {
+                        kv.map((k, i) => <div key={i} className="kv"></div>)
+                    }
+                </div>
 
                 <button onClick={() => stebuklas('Abra-kadabra')}>Press WITH</button>
                 <button onClick={stebuklas1}>Press W/O</button>
                 <button onClick={add}>+1</button>
+                <button onClick={addKv}>ADD []</button>
             </header>
         </div>
     );
