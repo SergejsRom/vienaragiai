@@ -29,6 +29,7 @@ function App() {
 
     const addKv = () => setKv(kvM => [...kvM, randColor()])
 
+    const remKv = () => setKv(kvM => kvM.slice(1));
 
     return (
         <div className="App">
@@ -44,6 +45,7 @@ function App() {
                 <button onClick={stebuklas1}>Press W/O</button>
                 <button onClick={add}>+1</button>
                 <button onClick={addKv}>ADD []</button>
+                <button onClick={remKv}>REMOVE []</button>
             </header>
         </div>
     );
