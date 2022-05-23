@@ -1,54 +1,29 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import './App.css';
-
-import randColor from './Functions/randColor';
-
-// const cats = ['Pilkis', 'Rainis', 'Murkis'];
-
+import Tvenkinys from './Components/011/Tvenkinys';
+const seaPlaners = [
+    {id: 1, type: 'man', name: 'Lina', color: 'blue'},
+    {id: 2, type: 'car', name: 'Opel', color: 'red'},
+    {id: 3, type: 'animal', name: 'Vilkas', color: 'green'},
+    {id: 4, type: 'fish', name: 'Ungurys', color: 'yellow'},
+    {id: 5, type: 'man', name: 'Tomas', color: 'green'},
+    {id: 6, type: 'animal', name: 'Bebras', color: 'red'},
+    {id: 7, type: 'animal', name: 'Barsukas', color: 'green'},
+    {id: 8, type: 'car', name: 'MB', color: 'blue'},
+    {id: 9, type: 'car', name: 'ZIL', color: 'red'},
+    {id: 10, type: 'man', name: 'Teta Toma', color: 'yellow'},
+  ];
+  
 function App() {
-
-    const [spalva, setSpalva] = useState('crimson');
-    const [nr, setNr] = useState(1);
-    const [kv, setKv] = useState([]);
-
-    const stebuklas = (a) => {
-        console.log('stebuklu stebuklas ' + a);
-    }
-
-    const stebuklas1 = () => {
-        console.log('stebuklu stebuklas');
-        // const newColor = spalva === 'crimson' ? 'skyblue' : 'crimson';
-        setSpalva((oldColor) => oldColor === 'crimson' ? 'skyblue' : 'crimson');
-        // spalva = 'skyblue';
-        console.log(spalva);
-    }
-
-    const add = () => {
-        setNr(n => n + 1);
-    }
-
-    const addKv = () => setKv(kvM => [...kvM, randColor()])
-
-    const remKv = () => setKv(kvM => kvM.slice(1));
 
     return (
         <div className="App">
-            <header className="App-header">
-                <h1 style={{color:spalva}}>State {nr}</h1>
-                <div className="kvc">
-                    {
-                        kv.map((c, i) => <div key={i} className="kv" style={{background: c}}>{i}</div>)
-                    }
-                </div>
-
-                <button onClick={() => stebuklas('Abra-kadabra')}>Press WITH</button>
-                <button onClick={stebuklas1}>Press W/O</button>
-                <button onClick={add}>+1</button>
-                <button onClick={addKv}>ADD []</button>
-                <button onClick={remKv}>REMOVE []</button>
-            </header>
+          <header className="App-header">
+            <Tvenkinys seaPlaners={seaPlaners}></Tvenkinys>
+          </header>
         </div>
-    );
+      );
+
 }
 
 export default App;
