@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import axios from 'axios';
 
 function App() {
 
@@ -8,6 +9,14 @@ function App() {
 
     useEffect(() => {
         console.log('GO');
+    }, []);
+
+    useEffect(() => {
+        axios.get('http://localhost/vienaragiai/011/')
+        .then(res => {
+          console.log(res);
+          setCats(res.data);
+        });
     }, []);
 
     return (
