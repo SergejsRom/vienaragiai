@@ -1,8 +1,10 @@
 <?php
+session_start();
 // Scenarijus POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $kintamas = $_POST['tek'];
+   $_SESSION['bla'] = $_POST['tek'];
+
 
     header('Location: http://localhost/vienaragiai/012/form.php');
     die;
@@ -23,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
     <?php
-    echo $kintamas;
+    echo $_SESSION['bla'];
     ?>
 
     <form action="" method="post">
