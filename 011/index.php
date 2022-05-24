@@ -11,6 +11,8 @@ for($i = 0; $i < 300; $i++) {
     $cats[] = rand(1000000, 9999999);
 }
 
+sleep(5);
+
 $out = json_encode($cats);
 
 header('Content-Type: application/json');
