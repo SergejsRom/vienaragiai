@@ -2,8 +2,11 @@
 
 define('KYE', 1);
 
-echo KYE;
+echo __DIR__ .'/kitas/vienas.php';;
 
 
-include './kitas/vienas.php';
-include './kitas/vienas.php';
+
+
+include __DIR__ .'/kitas/vienas.php';
+include __DIR__ .'/kitas/vienas.php';
+include __DIR__ .'/dar-kitas/du.php';
