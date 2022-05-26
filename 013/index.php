@@ -2,11 +2,12 @@
 
 define('KYE', 1);
 
-echo __DIR__ .'/kitas/vienas.php';;
+echo __DIR__ .'/kitas/vienas.php';
 
+require __DIR__ .'/kitas/vienas.php';
+require __DIR__ .'/kitas/vienas.php';
+require __DIR__ .'/dar-kitas/du.php';
 
+$data = require __DIR__ .'/data.php';
 
-
-include __DIR__ .'/kitas/vienas.php';
-include __DIR__ .'/kitas/vienas.php';
-include __DIR__ .'/dar-kitas/du.php';
+print_r($data);
