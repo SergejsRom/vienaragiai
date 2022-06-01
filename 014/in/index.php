@@ -1,5 +1,11 @@
 <?php
+//settings
 define('INSTALL', '/vienaragiai/014/in/');
+define('DIR', __DIR__ .'/app/');
+define('URL', 'http://localhost/vienaragiai/014/in/');
+
+
+
 
 $uri = str_replace(INSTALL, '', $_SERVER['REQUEST_URI']);
 $uri = explode('/', $uri);
