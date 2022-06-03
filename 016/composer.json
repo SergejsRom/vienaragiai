@@ -1,0 +1,17 @@
+{
+    "name": "super/duper",
+    "description": "Normaliai",
+    "authors": [
+        {
+            "name": "As",
+            "email": "bebras@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Meska\\Lokys\\": "",
+            "Old\\" : "bb/"
+        }
+    },
+    "require": {}
+}

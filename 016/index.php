@@ -1,16 +1,47 @@
 <?php
+use Meska\Lokys\Vaikas;
+
+
+// spl_autoload_register(function ($class) {
+//     require __DIR__ . '/'.$class.'.php';
+// });
+
+
 echo '<pre>';
-require __DIR__ . '/Stikline.php';
-require __DIR__ . '/Cart.php';
+// require __DIR__ . '/Stikline.php';
+// require __DIR__ . '/Cart.php';
+// require __DIR__ . '/Senelis.php';
+// require __DIR__ . '/Tevas.php';
+// require __DIR__ . '/Vaikas.php';
 
-$c1 = Cart::create();
-$c2 = Cart::create();
+require __DIR__ . '/vendor/autoload.php';
 
-$c3 = unserialize(serialize($c1));
 
-echo Cart::BAD;
 
-echo '<br>';
+
+
+$v1 = new Vaikas;
+$v2 = new Vaikas;
+$v3 = new Vaikas;
+
+
+
+$v1->betvarke();
+// $v->tvarka();
+// $v->pasaka();
+
+// echo $v->posakis;
+
+die;
+
+// $c1 = Cart::create();
+// $c2 = Cart::create();
+
+// $c3 = unserialize(serialize($c1));
+
+// echo Cart::BAD;
+
+// echo '<br>';
 
 // echo json_encode($c1);
 
@@ -22,7 +53,7 @@ var_dump($c1);
 var_dump($c2);
 var_dump($c3);
 
-die;
+
 
 
 
