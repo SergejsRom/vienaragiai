@@ -4,6 +4,7 @@ class Cart {
 
     public $id;
     static private $cart;
+    const BAD = 'klasine';
 
     static public function create() {
         return self::$cart ?? self::$cart = new self;

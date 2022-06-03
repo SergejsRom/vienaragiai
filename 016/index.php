@@ -8,6 +8,8 @@ $c2 = Cart::create();
 
 $c3 = unserialize(serialize($c1));
 
+echo Cart::BAD;
+
 echo '<br>';
 
 // echo json_encode($c1);
