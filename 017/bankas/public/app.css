@@ -14,7 +14,11 @@ h1 span {
 
 .alert {
   padding: 5px;
-  background-color:yellow;
+  background-color: crimson;
   border: 1px solid black;
   margin: 5px;
+}
+
+h2 {
+  color: aquamarine;
 }
