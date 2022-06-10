@@ -12,5 +12,7 @@
             "name": "Bebras"
         }
     ],
-    "require": {}
+    "require": {
+        "ramsey/uuid": "^4.3"
+    }
 }
