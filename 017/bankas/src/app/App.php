@@ -59,6 +59,10 @@ class App {
             return $_SESSION['user']->full_name;
         }
 
+        public static function csrf() {
+            return md5('dslkfjlkdsnvgfjfyjflkdsfnvno;dsfh'. $_SERVER['HTTP_USER_AGENT']);
+        }
+
         private static function route(array $uri) {
 
             $m = $_SERVER['REQUEST_METHOD'];

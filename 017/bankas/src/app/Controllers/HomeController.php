@@ -40,6 +40,10 @@ class HomeController {
     }
 
     public function doForm() {
+        if(($_POST['csrf'] ?? '') != App::csrf()) {
+            M::add('Blogas kodas', 'alert');
+            return App::redirect('forma');
+        }
         M::add('Puiku', 'alert');
         M::add($_POST['alabama'], 'success');
         return App::redirect('forma');

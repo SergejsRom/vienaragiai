@@ -1,5 +1,5 @@
 <?php
-
+use Bankas\App;
 require __DIR__ . '/top.php';
 ?>
 
@@ -11,6 +11,7 @@ require __DIR__ . '/top.php';
     <form method="post">
     <input type="text" name="alabama">
     <button type="submit">GO</button>
+    <input type="hidden" name="csrf" value="<?= App::csrf() ?>">
     </form>
 </fieldset>
 
