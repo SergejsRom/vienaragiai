@@ -17,12 +17,26 @@ $uri = explode('/', $uri);
 $m = $_SERVER['REQUEST_METHOD'];
 
 
+// header('Content-Type: application/json');
+// header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Methods: GET, POST');
+// header("Access-Control-Allow-Headers: X-Requested-With");
+
+// echo 'labas';
+
+// die;
+
+
 if ($m == 'GET' && count($uri) == 1 && $uri[0] == 'animals') {
-
-    $out = $db->showAll('farm');
-
+    $out = $db->showAll();
 }
-
+if ($m == 'POST' && count($uri) == 1 && $uri[0] == 'animals') {
+    $rawData = file_get_contents("php://input");
+    
+    $data = json_decode($rawData, 1);
+    $db->create($data);
+    $out = ['msg' => 'OK, donkey'];
+}
 
 
 $out = json_encode($out);

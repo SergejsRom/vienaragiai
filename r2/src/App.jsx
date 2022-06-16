@@ -12,19 +12,33 @@ function App() {
 
   const [animals, setAnimals] = useState([]);
 
+  const [createAnimal, setCreateAnimal] = useState(null);
+
   useEffect(() => {
     axios.get('http://localhost/vienaragiai/r2server/animals')
-    .then(res => setAnimals(res.data));
+      .then(res => setAnimals(res.data));
   }, []);
 
+  useEffect(() => {
+    if(null === createAnimal) return;
+    axios.post('http://localhost/vienaragiai/r2server/animals', createAnimal)
+      .then(res => console.log(res.data));
+  }, [createAnimal]);
+
+
   return (
-    <DataContext.Provider value={{animals}}>
-    <div className="container">
-      <div className="row">
-        <Create />
-        <List />
+    <DataContext.Provider value={
+      {
+        animals,
+        setCreateAnimal
+      }
+    }>
+      <div className="container">
+        <div className="row">
+          <Create />
+          <List />
+        </div>
       </div>
-    </div>
     </DataContext.Provider>
   );
 }
