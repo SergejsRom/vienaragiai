@@ -25,8 +25,6 @@ if ($m == 'GET' && count($uri) == 1 && $uri[0] == 'animals') {
 
 
 
-
-
 $out = json_encode($out);
 
 header('Content-Type: application/json');
