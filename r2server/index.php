@@ -16,17 +16,6 @@ $uri = explode('/', $uri);
 
 $m = $_SERVER['REQUEST_METHOD'];
 
-
-// header('Content-Type: application/json');
-// header('Access-Control-Allow-Origin: *');
-// header('Access-Control-Allow-Methods: GET, POST');
-// header("Access-Control-Allow-Headers: X-Requested-With");
-
-// echo 'labas';
-
-// die;
-
-
 if ($m == 'GET' && count($uri) == 1 && $uri[0] == 'animals') {
     $out = $db->showAll();
 }
@@ -44,7 +33,11 @@ $out = json_encode($out);
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
-header("Access-Control-Allow-Headers: X-Requested-With");
+header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
+
+
+
+
 
 echo $out;
 
