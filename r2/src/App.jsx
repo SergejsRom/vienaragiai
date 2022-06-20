@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import './App.scss';
 import './bootstrap.css';
+import './App.scss';
 import Create from './Components/Create';
 import DataContext from './Components/DataContext';
 import List from './Components/List';
 import axios from 'axios';
+import Edit from './Components/Edit';
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
 
   const [createAnimal, setCreateAnimal] = useState(null);
   const [deleteAnimal, setDeleteAnimal] = useState(null);
+
+  const [modalAnimal, setModalAnimal] = useState(1);
 
   useEffect(() => {
     axios.get('http://localhost/vienaragiai/r2server/animals')
@@ -40,7 +43,9 @@ function App() {
       {
         animals,
         setCreateAnimal,
-        setDeleteAnimal
+        setDeleteAnimal,
+        modalAnimal,
+        setModalAnimal
       }
     }>
       <div className="container">
@@ -49,6 +54,7 @@ function App() {
           <List />
         </div>
       </div>
+      <Edit></Edit>
     </DataContext.Provider>
   );
 }
