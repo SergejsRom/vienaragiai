@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import DataContext from "./DataContext";
 
 function Edit() {
 
-    const { modalAnimal, setModalAnimal } = useContext(DataContext);
+    const { modalAnimal, setModalAnimal, setEditAnimal } = useContext(DataContext);
 
     const [animal, setAnimal] = useState('');
     const [weight, setWeight] = useState('');
@@ -12,11 +12,16 @@ function Edit() {
         setModalAnimal(null);
     }
 
-    // const create = () => {
-    //     setCreateAnimal({animal, weight});
-    //     setAnimal('');
-    //     setWeight('');
-    // }
+    useEffect(() => {
+        if (null === modalAnimal) return;
+        setAnimal(modalAnimal.animal);
+        setWeight(modalAnimal.weight);
+    }, [modalAnimal])
+
+    const edit = () => {
+        setEditAnimal({animal, weight, id:modalAnimal.id});
+        setModalAnimal(null);
+    }
 
     if (null === modalAnimal) {
         return null;
@@ -49,8 +54,8 @@ function Edit() {
                         </div>
                     </div>
                     <div className="modal-footer">
+                        <button type="button" className="btn btn-outline-success" onClick={edit}>Save changes</button>
                         <button type="button" className="btn btn-outline-secondary" onClick={close}>Close</button>
-                        <button type="button" className="btn btn-outline-success">Save changes</button>
                     </div>
                 </div>
             </div>

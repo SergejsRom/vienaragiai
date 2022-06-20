@@ -17,6 +17,7 @@ function App() {
 
   const [createAnimal, setCreateAnimal] = useState(null);
   const [deleteAnimal, setDeleteAnimal] = useState(null);
+  const [editAnimal, setEditAnimal] = useState(null);
 
   const [modalAnimal, setModalAnimal] = useState(null);
 
@@ -37,6 +38,12 @@ function App() {
       .then(_ => setLastUpdate(Date.now()));
   }, [deleteAnimal]);
 
+  useEffect(() => {
+    if(null === editAnimal) return;
+    axios.put('http://localhost/vienaragiai/r2server/animals/' + editAnimal.id, editAnimal)
+      .then(_ => setLastUpdate(Date.now()));
+  }, [editAnimal]);
+
 
   return (
     <DataContext.Provider value={
@@ -45,7 +52,8 @@ function App() {
         setCreateAnimal,
         setDeleteAnimal,
         modalAnimal,
-        setModalAnimal
+        setModalAnimal,
+        setEditAnimal
       }
     }>
       <div className="container">

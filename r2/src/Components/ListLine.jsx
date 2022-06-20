@@ -18,7 +18,7 @@ function ListLine({ animal }) {
             <div className="one-animal">
                 <div className="one-animal__content">
                     <b>{animal.animal}</b>
-                    <span>weight:{animal.weight}kg</span>
+                    <span>weight: {animal.weight}kg</span>
                 </div>
 
                 <div className="one-animal__buttons">
