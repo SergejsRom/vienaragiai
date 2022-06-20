@@ -12,17 +12,19 @@ function App() {
 
   const [animals, setAnimals] = useState([]);
 
+  const [lastUpdate, setLastUpdate] = useState(Date.now());
+
   const [createAnimal, setCreateAnimal] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost/vienaragiai/r2server/animals')
       .then(res => setAnimals(res.data));
-  }, []);
+  }, [lastUpdate]);
 
   useEffect(() => {
     if(null === createAnimal) return;
     axios.post('http://localhost/vienaragiai/r2server/animals', createAnimal)
-      .then(res => console.log(res.data));
+      .then(_ => setLastUpdate(Date.now()));
   }, [createAnimal]);
 
 

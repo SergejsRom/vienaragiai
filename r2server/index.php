@@ -36,9 +36,6 @@ header('Access-Control-Allow-Methods: GET, POST');
 header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
 
 
-
-
-
 echo $out;
 
 
