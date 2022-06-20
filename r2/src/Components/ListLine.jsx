@@ -3,10 +3,14 @@ import DataContext from "./DataContext";
 
 function ListLine({ animal }) {
 
-    const {setDeleteAnimal} = useContext(DataContext);
+    const {setDeleteAnimal, setModalAnimal} = useContext(DataContext);
 
     const remove = () => {
         setDeleteAnimal(animal);
+    }
+
+    const edit = () => {
+        setModalAnimal(animal);
     }
 
     return (
@@ -18,7 +22,7 @@ function ListLine({ animal }) {
                 </div>
 
                 <div className="one-animal__buttons">
-                    <button type="button" className="btn btn-outline-success mr-3">Edit</button>
+                    <button type="button" className="btn btn-outline-success mr-3" onClick={edit}>Edit</button>
                     <button type="button" className="btn btn-outline-danger" onClick={remove}>Delete</button>
                 </div>
             </div>

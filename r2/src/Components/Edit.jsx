@@ -8,6 +8,10 @@ function Edit() {
     const [animal, setAnimal] = useState('');
     const [weight, setWeight] = useState('');
 
+    const close = () => {
+        setModalAnimal(null);
+    }
+
     // const create = () => {
     //     setCreateAnimal({animal, weight});
     //     setAnimal('');
@@ -24,7 +28,7 @@ function Edit() {
                 <div className="modal-content">
                     <div className="modal-header">
                         <h2 className="modal-title">Edit</h2>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" className="close" onClick={close}>
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -45,7 +49,7 @@ function Edit() {
                         </div>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" className="btn btn-outline-secondary" onClick={close}>Close</button>
                         <button type="button" className="btn btn-outline-success">Save changes</button>
                     </div>
                 </div>

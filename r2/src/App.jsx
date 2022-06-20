@@ -18,7 +18,7 @@ function App() {
   const [createAnimal, setCreateAnimal] = useState(null);
   const [deleteAnimal, setDeleteAnimal] = useState(null);
 
-  const [modalAnimal, setModalAnimal] = useState(1);
+  const [modalAnimal, setModalAnimal] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost/vienaragiai/r2server/animals')
