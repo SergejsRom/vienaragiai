@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import './App.css';
+import './App.scss';
 import './bootstrap.css';
 import Create from './Components/Create';
 import DataContext from './Components/DataContext';
@@ -15,6 +15,7 @@ function App() {
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 
   const [createAnimal, setCreateAnimal] = useState(null);
+  const [deleteAnimal, setDeleteAnimal] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost/vienaragiai/r2server/animals')
@@ -27,12 +28,19 @@ function App() {
       .then(_ => setLastUpdate(Date.now()));
   }, [createAnimal]);
 
+  useEffect(() => {
+    if(null === deleteAnimal) return;
+    axios.delete('http://localhost/vienaragiai/r2server/animals/' + deleteAnimal.id)
+      .then(_ => setLastUpdate(Date.now()));
+  }, [deleteAnimal]);
+
 
   return (
     <DataContext.Provider value={
       {
         animals,
-        setCreateAnimal
+        setCreateAnimal,
+        setDeleteAnimal
       }
     }>
       <div className="container">
