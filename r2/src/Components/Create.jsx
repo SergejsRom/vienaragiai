@@ -3,19 +3,19 @@ import { useState } from "react";
 import DataContext from "./DataContext";
 
 function Create() {
-
+let a = Math.floor(Math.random() * (999999 - 100000 + 1) ) + 100000;
     const {setCreateAnimal} = useContext(DataContext);
 
     const [vardas, setVardas] = useState('');
     const [pavarde, setPavarde] = useState('');
-    const [sasknr, setSasknr] = useState('');
+    const [sasknr, setSasknr] = useState('LT' + a);
     const [balansas, setBalansas] = useState(0);
 
     const create = () => {
         setCreateAnimal({vardas, pavarde, sasknr, balansas});
         setVardas('');
         setPavarde('');
-        setSasknr('');
+        setSasknr('LT' + a);
         setBalansas(0);
 
        
