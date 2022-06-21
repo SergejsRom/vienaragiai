@@ -11,6 +11,10 @@ class App {
 
         public static function start() {
             session_start();
+            header('Access-Control-Allow-Origin: *');
+            header('Access-Control-Allow-Methods: GET, POST, DELETE, PUT');
+            header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
+            header('Content-Type: application/json');
             Messages::init();
             ob_start();
             $uri = explode('/', $_SERVER['REQUEST_URI']);
@@ -30,7 +34,7 @@ class App {
         }
 
         public static function json(array $data = []) {
-            header('Content-Type: application/json; charset=utf-8');
+
             echo json_encode($data);
         }
 
@@ -109,8 +113,22 @@ class App {
                 return (new HomeController)->doForm( );
             }
 
+            // API
+
+
+
+            if ('GET' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'home') {
+                return (new HomeController)->indexJson();
+            }
+
+            if ('POST' == $m && count($uri) == 2 && $uri[0] === 'api' && $uri[1] === 'form') {
+                return (new HomeController)->formJson();
+            }
+
+
+
             else {
-                echo 'kitka';
+                App::json('kitka');
             }
 
         }

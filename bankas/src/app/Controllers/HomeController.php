@@ -29,11 +29,16 @@ class HomeController {
         for($i = 0; $i < 10; $i++) {
             $list[] = rand(1000, 9999);
         }
-        return App::json([
-            'title' => 'Alabama',
-            'list' => $list
-        ]);
+        return App::json($list);
     }
+
+    public function formJson() {
+        $rawData = file_get_contents("php://input");
+        $data = json_decode($rawData, 1);
+
+        return App::json(['msg'=> 'Ok, Alabama', 'youSay' => $data['alabama']]);
+    }
+
 
     public function form() {
         return App::view('form', ['messages' => M::get()]);
