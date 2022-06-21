@@ -5,8 +5,10 @@ function Edit() {
 
     const { modalAnimal, setModalAnimal, setEditAnimal } = useContext(DataContext);
 
-    const [animal, setAnimal] = useState('');
-    const [weight, setWeight] = useState('');
+    const [vardas, setVardas] = useState('');
+    const [pavarde, setPavarde] = useState('');
+    const [sasknr, setSasknr] = useState('');
+    const [balansas, setBalansas] = useState('');
 
     const close = () => {
         setModalAnimal(null);
@@ -14,16 +16,18 @@ function Edit() {
 
     useEffect(() => {
         if (null === modalAnimal) return;
-        setAnimal(modalAnimal.animal);
-        setWeight(modalAnimal.weight);
+        setVardas(modalAnimal.vardas);
+        setPavarde(modalAnimal.pavarde);
+        setSasknr(modalAnimal.sasknr);
+        setBalansas(modalAnimal.balansas);
     }, [modalAnimal])
 
     const edit = () => {
-        setEditAnimal({animal, weight, id:modalAnimal.id});
+        setEditAnimal({vardas, pavarde, sasknr, balansas, id:modalAnimal.id});
         setModalAnimal(null);
     }
 
-    if (null === modalAnimal) {
+    if (null === modalAnimal) { 
         return null;
     }
 
@@ -39,17 +43,28 @@ function Edit() {
                     </div>
                     <div className="modal-body">
                         <div className="card mt-4">
-                            <div className="card-body">
-                                <div className="form-group">
-                                    <label>Animal</label>
-                                    <input type="text" className="form-control" value={animal} onChange={e => setAnimal(e.target.value)} />
-                                    <small className="form-text text-muted">Please enter some nice animal (small donkey etc.).</small>
-                                </div>
-                                <div className="form-group">
-                                    <label>Animal weight</label>
-                                    <input type="text" className="form-control" value={weight} onChange={e => setWeight(e.target.value)} />
-                                    <small className="form-text text-muted">How much is the fish (Scooter).</small>
-                                </div>
+                        <div className="card-body">
+                    <div className="form-group">
+                        <label>Vardas</label>
+                        <input type="text" className="form-control" value={vardas} onChange={e => setVardas(e.target.value)}/>
+                        <small className="form-text text-muted">Koreguoti varda</small>
+                    </div>
+                    <div className="form-group">
+                        <label>Pavarde</label>
+                        <input type="text" className="form-control" value={pavarde} onChange={e => setPavarde(e.target.value)}/>
+                        <small className="form-text text-muted">Koreguoti pavarde</small>
+                    </div>
+                    <div className="form-group">
+                        <label>sask. nr</label>
+                        <input type="text" className="form-control" value={sasknr} onChange={e => setSasknr(e.target.value)}/>
+                        <small className="form-text text-muted"></small>
+                    </div>
+                    <div className="form-group">
+                        <label>Balansas</label>
+                        <input type="text" className="form-control" value={balansas} onChange={e => setBalansas(e.target.value)}/>
+                        <small className="form-text text-muted">How much is the fish (Scooter).</small>
+                    </div>
+                    
                             </div>
                         </div>
                     </div>

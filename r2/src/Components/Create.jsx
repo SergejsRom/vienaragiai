@@ -6,14 +6,23 @@ function Create() {
 
     const {setCreateAnimal} = useContext(DataContext);
 
-    const [animal, setAnimal] = useState('');
-    const [weight, setWeight] = useState('');
+    const [vardas, setVardas] = useState('');
+    const [pavarde, setPavarde] = useState('');
+    const [sasknr, setSasknr] = useState('');
+    const [balansas, setBalansas] = useState(0);
 
     const create = () => {
-        setCreateAnimal({animal, weight});
-        setAnimal('');
-        setWeight('');
+        setCreateAnimal({vardas, pavarde, sasknr, balansas});
+        setVardas('');
+        setPavarde('');
+        setSasknr('');
+        setBalansas(0);
+
+       
     }
+    // let a = Math.floor(Math.random() * (100000 - 999999 + 100000) ) + 100000;
+     
+    
 
     return (
         <div className="col-5">
@@ -23,13 +32,18 @@ function Create() {
                 </div>
                 <div className="card-body">
                     <div className="form-group">
-                        <label>Animal</label>
-                        <input type="text" className="form-control" value={animal} onChange={e => setAnimal(e.target.value)}/>
-                        <small className="form-text text-muted">Please enter some nice animal (small donkey etc.).</small>
+                        <label>Vardas</label>
+                        <input type="text" className="form-control" value={vardas} onChange={e => setVardas(e.target.value)}/>
+                        <small className="form-text text-muted">Iveskite varda</small>
                     </div>
                     <div className="form-group">
-                        <label>Animal weight</label>
-                        <input type="text" className="form-control" value={weight} onChange={e => setWeight(e.target.value)}/>
+                        <label>Pavarde</label>
+                        <input type="text" className="form-control" value={pavarde} onChange={e => setPavarde(e.target.value)}/>
+                        <small className="form-text text-muted">Iveskite pavarde</small>
+                    </div>
+                    <div className="form-group">
+                        <label>sask. nr</label>
+                        <input type="text"  className="form-control" value={sasknr} onChange={e => setSasknr(e.target.value)}/>
                         <small className="form-text text-muted">How much is the fish (Scooter).</small>
                     </div>
                     <button type="button" className="btn btn-outline-success" onClick={create}>Create</button>

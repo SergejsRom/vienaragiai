@@ -1,24 +1,26 @@
 import { useContext } from "react";
 import DataContext from "./DataContext";
 
-function ListLine({ animal }) {
+function ListLine({ klientas }) {
 
     const {setDeleteAnimal, setModalAnimal} = useContext(DataContext);
 
     const remove = () => {
-        setDeleteAnimal(animal);
+        setDeleteAnimal(klientas);
     }
 
     const edit = () => {
-        setModalAnimal(animal);
+        setModalAnimal(klientas);
     }
 
     return (
         <li className="list-group-item">
             <div className="one-animal">
                 <div className="one-animal__content">
-                    <b>{animal.animal}</b>
-                    <span>weight: {animal.weight}kg</span>
+                    <b>{klientas.vardas} </b>
+                    <span>{klientas.pavarde}</span>
+                    <span>{klientas.sasknr}</span>
+                    <span>{klientas.balansas}</span>
                 </div>
 
                 <div className="one-animal__buttons">

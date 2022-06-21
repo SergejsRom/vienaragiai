@@ -11,7 +11,7 @@ import Edit from './Components/Edit';
 
 function App() {
 
-  const [animals, setAnimals] = useState([]);
+  const [klientas, setAnimals] = useState([]);
 
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 
@@ -27,6 +27,7 @@ function App() {
   }, [lastUpdate]);
 
   useEffect(() => {
+    console.log(createAnimal);
     if(null === createAnimal) return;
     axios.post('http://localhost/vienaragiai/r2server/animals', createAnimal)
       .then(_ => setLastUpdate(Date.now()));
@@ -48,7 +49,7 @@ function App() {
   return (
     <DataContext.Provider value={
       {
-        animals,
+        klientas,
         setCreateAnimal,
         setDeleteAnimal,
         modalAnimal,

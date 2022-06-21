@@ -4,7 +4,7 @@ import ListLine from "./ListLine";
 
 function List() {
 
-    const { animals } = useContext(DataContext);
+    const { klientas } = useContext(DataContext);
 
     return (
         <div className="col-7">
@@ -15,7 +15,7 @@ function List() {
                 <div className="card-body">
                     <ul className="list-group">
                         {
-                            animals.map(a => <ListLine  key={a.id} animal={a}></ListLine>)
+                            klientas.map(a => <ListLine  key={a.id} klientas={a}></ListLine>)
                         }
                     </ul>
                 </div>

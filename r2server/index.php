@@ -24,12 +24,12 @@ if ($m == 'POST' && count($uri) == 1 && $uri[0] == 'animals') {
     
     $data = json_decode($rawData, 1);
     $db->create($data);
-    $out = ['msg' => 'OK, donkey'];
+    $out = ['msg' => 'OK, post'];
 }
 if ($m == 'DELETE' && count($uri) == 2 && $uri[0] == 'animals') {
 
     $db->delete($uri[1]);
-    $out = ['msg' => 'OK, donkey'];
+    $out = ['msg' => 'OK, delete'];
 }
 
 if ($m == 'PUT' && count($uri) == 2 && $uri[0] == 'animals') {
@@ -37,7 +37,7 @@ if ($m == 'PUT' && count($uri) == 2 && $uri[0] == 'animals') {
     
     $data = json_decode($rawData, 1);
     $db->update($uri[1], $data);
-    $out = ['msg' => 'OK, donkey'];
+    $out = ['msg' => 'OK, put'];
 }
 
 
