@@ -36,7 +36,18 @@ class HomeController {
         $rawData = file_get_contents("php://input");
         $data = json_decode($rawData, 1);
 
-        return App::json(['msg'=> 'Ok, Alabama', 'youSay' => $data['alabama']]);
+        $w = $data['alabama'];
+
+        if (strlen($w) > 5) {
+            $msg = 'Blogai';
+            $err = 1;
+        } else {
+            $msg = 'Gerai';
+            $err = 0;
+        }
+
+
+        return App::json(['err' => $err, 'msg'=> $msg, 'youSay' => $data['alabama']]);
     }
 
 

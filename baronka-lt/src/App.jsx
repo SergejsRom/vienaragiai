@@ -14,6 +14,8 @@ function App() {
 
   const [youSay, setYouSay] = useState('');
 
+  const [error, setError] = useState(false);
+
   useEffect(() => {
 
       axios.get('http://baronka.lt/api/home')
@@ -26,7 +28,12 @@ function App() {
     axios.post('http://baronka.lt/api/form', formData)
     .then(res => {
         console.log(res.data);
-        setYouSay(res.data.youSay);
+        if (res.data.err === 1) {
+          setError(true);
+        } else {
+          setYouSay(res.data.youSay);
+        }
+        
     })
 
 }, [formData]);
@@ -38,7 +45,7 @@ function App() {
       <Home list={list}></Home>
       <h1>{youSay}</h1>
       <button onClick={() => setShowForm(f => !f)}>Show form</button>
-      <Form showForm={showForm} setFormData={setFormData}></Form>
+      <Form error={error} showForm={showForm} setFormData={setFormData}></Form>
     </>
   );
 }
